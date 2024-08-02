@@ -1,0 +1,14 @@
+dubbo:
+  application:
+    name: dubbo-admin-provider
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    #address: zookeeper://${zookeeper.address:192.168.109.128}:2181?timeout=60000
+    address: nacos://127.0.0.1:8848?timeout=60000
+    id: nacos-registry-provider
+  config-center:
+    address: nacos://127.0.0.1:8848?timeout=60000
+  metadata-report:
+    address: nacos://127.0.0.1:8848?timeout=60000

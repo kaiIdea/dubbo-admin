@@ -1,0 +1,15 @@
+dubbo:
+  application:
+    name: dubbo-admin-consumer
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    id: nacos-registry-consumer
+    # address: zookeeper://${zookeeper.address:192.168.109.128}:2181?timeout=60000
+    address: nacos://127.0.0.1:8848?timeout=60000
+logging:
+  level:
+    org.springframework:
+      boot:
+        autoconfigure: ERROR
