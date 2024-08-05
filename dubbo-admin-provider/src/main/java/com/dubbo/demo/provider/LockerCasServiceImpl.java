@@ -13,9 +13,17 @@ import java.sql.SQLException;
 @DubboService
 public class LockerCasServiceImpl implements LockerCasService {
     @Override
-    public LockerCas getCasMessage(int index) throws SQLException, ClassNotFoundException {
+    public LockerCas getCasMessage(Integer index) throws SQLException, ClassNotFoundException {
         String sql = "SELECT * FROM locker_cas_1 where id = ?";
         LockerCas lockerCas = JDBCProcess.getLockerCas(sql, index);
+        RpcContext.getServerContext().setAttachment("data","very good");
+        return lockerCas;
+    }
+
+    @Override
+    public LockerCas getCasMessage(String index) throws SQLException, ClassNotFoundException {
+        String sql = "SELECT * FROM locker_cas_1 where id = ?";
+        LockerCas lockerCas = JDBCProcess.getLockerCas(sql, Integer.parseInt(index));
         RpcContext.getServerContext().setAttachment("data","very good");
         return lockerCas;
     }

@@ -7,5 +7,6 @@ import java.sql.SQLException;
 public interface LockerCasService {
 
 
-    public LockerCas getCasMessage(int index) throws SQLException, ClassNotFoundException;
+    public LockerCas getCasMessage(Integer index) throws SQLException, ClassNotFoundException;
+    public LockerCas getCasMessage(String index) throws SQLException, ClassNotFoundException;
 }

@@ -7,6 +7,7 @@ import org.apache.dubbo.config.ApplicationConfig;
 import org.apache.dubbo.config.ProtocolConfig;
 import org.apache.dubbo.config.RegistryConfig;
 import org.apache.dubbo.config.ServiceConfig;
+import org.apache.dubbo.config.annotation.DubboService;
 import org.apache.dubbo.rpc.service.GenericService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,6 +15,8 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.util.concurrent.CompletableFuture;
 
+
+@DubboService
 public class OrderServiceImpl implements OrderService {
 
     private static final Logger logger = LoggerFactory.getLogger(OrderServiceImpl.class);
@@ -74,6 +77,8 @@ public class OrderServiceImpl implements OrderService {
 
 
         GenericService genericOrderService = new GenericImplOfOrderService();
+
+
 
         ServiceConfig<GenericService> orderServiceConfig = new ServiceConfig<>();
         orderServiceConfig.setInterface("com.dubbo.demo.OrderService");
