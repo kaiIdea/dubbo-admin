@@ -23,10 +23,10 @@ public class CommandLineRunnerImpl1 implements CommandLineRunner {
 
     public final static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
-    @DubboReference(check = false,group = "V1.0.1")
+    @DubboReference(check = false,group = "V1.0.1",cluster = "failsafe")
     DemoService demoService;
 
-    @DubboReference(check = false,group = "V1.0.0")
+    @DubboReference(check = false,group = "V1.0.0",cluster = "failsafe")
     DemoService demoService1;
 
     @Override
@@ -34,10 +34,13 @@ public class CommandLineRunnerImpl1 implements CommandLineRunner {
         if(null == demoService){
             return;
         }
-        String result = demoService.sayHello("world");
-        System.out.println("Receive result ======> " + result);
-        String result1 = demoService1.sayHello("world");
-        System.out.println("Receive result ======> " + result1);
+        if(null == demoService1){
+            return;
+        }
+//        String result = demoService.sayHello("world");
+//        System.out.println("Receive result ======> " + result);
+//        String result1 = demoService1.sayHello("world");
+//        System.out.println("Receive result ======> " + result1);
         boolean flag = false;
         new Thread(()-> {
             while (flag) {

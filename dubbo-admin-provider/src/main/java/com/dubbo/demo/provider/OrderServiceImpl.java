@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.util.concurrent.CompletableFuture;
 
 
-@DubboService
+@DubboService(delay = 5000)
 public class OrderServiceImpl implements OrderService {
 
     private static final Logger logger = LoggerFactory.getLogger(OrderServiceImpl.class);

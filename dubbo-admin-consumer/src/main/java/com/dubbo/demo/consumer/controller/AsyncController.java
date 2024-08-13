@@ -19,7 +19,7 @@ public class AsyncController {
 
     private static final Logger logger = LoggerFactory.getLogger(AsyncController.class);
 
-    @DubboReference(timeout = 6000)
+    @DubboReference(timeout = 6000,check = false)
     AsyncService asyncService;
 
 

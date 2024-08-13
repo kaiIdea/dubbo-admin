@@ -12,6 +12,13 @@ public class LockerCas implements Serializable {
     private String cnName;
     private String properties;
 
+    public LockerCas() {
+    }
+
+    public LockerCas(String cnName) {
+        this.cnName = cnName;
+    }
+
     public Integer getId() {
         return id;
     }

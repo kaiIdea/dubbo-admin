@@ -20,10 +20,10 @@ public class UserController {
 
     private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
-    @DubboReference
+    @DubboReference(check = false)
     LockerCasService lockerCasService;
 
-    @DubboReference(timeout = 6000)
+    @DubboReference(timeout = 6000,check = false)
     AsyncService asyncService;
 
     @GetMapping("/getHello/{index}")
